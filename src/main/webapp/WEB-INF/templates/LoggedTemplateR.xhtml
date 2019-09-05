@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="BaseTemplateR.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="menuPart">               
+        <h:form id="menuForm">
+            <p:growl id="messages" showDetail="true"/>
+            <p:slideMenu style="width:180px;height:280px;">
+                <p:submenu label="Administración" icon="ui-icon-extlink" style="width:170px;height:40px;" > 
+                    <p:menuitem value="Usuarios"      url="../../../content/admin/users/ListaUsuarios.xhtml?faces-redirect=true" />
+                </p:submenu>
+                <p:submenu label="Elementos" icon="ui-icon-extlink" style="width:170px;height:40px;">  
+                    <p:menuitem value="Transportes"    url="../../../content/admin/transporte/Listar.xhtml?faces-redirect=true" />
+                    <p:menuitem value="Transportistas" url="../../../content/admin/transportista/Listar.xhtml?faces-redirect=true" />
+                    <p:menuitem value="Clientes"       url="../../../content/admin/cliente/Listar.xhtml?faces-redirect=true" />                    
+                    <p:menuitem value="Pagos y Deudas" url="../../../content/admin/pagosDeudas/Listar.xhtml?faces-redirect=true" />
+                    <p:menuitem value="Productor"      url="../../../content/admin/productor/Listar.xhtml?faces-redirect=true" />
+                    <p:menuitem value="Agronomo"      url="../../../content/admin/agronomo/ListarTarima.xhtml?faces-redirect=true" />
+                </p:submenu>
+                <p:submenu label="Pallet" icon="ui-icon-extlink" style="width:170px;height:40px;"> 
+                    <p:menuitem value="Detalle"       url="../../../content/admin/pallet/Listar.xhtml?faces-redirect=true" />
+                </p:submenu>
+                <p:submenu label="Reportes" icon="ui-icon-extlink" style="width:170px;height:40px;"> 
+                    <p:submenu label="Catálogos">
+                        <p:menuitem value="Activo"          url="../../../content/admin/report/CatalogoActivo.xhtml?faces-redirect=true" />
+                        <p:menuitem value="Calibre"         url="../../../content/admin/report/CatalogoCalibre.xhtml?faces-redirect=true" />
+                        <p:menuitem value="Calidad"         url="../../../content/admin/report/CatalogoCalidad.xhtml?faces-redirect=true" />
+                        <p:menuitem value="Clientes"        url="../../../content/admin/report/CatalogoCliente.xhtml?faces-redirect=true" />
+                        <p:menuitem value="Marcas"          url="../../../content/admin/report/CatalogoMarca.xhtml?faces-redirect=true" />
+                        <p:menuitem value="Perfiles"        url="../../../content/admin/report/CatalogoPerfil.xhtml?faces-redirect=true" />
+                        <p:menuitem value="Tarima"          url="../../../content/admin/report/CatalogoTarima.xhtml?faces-redirect=true" />
+                    </p:submenu>
+                    <p:menuitem value="Transportistas"           url="../../../content/admin/report/CatalogoTransportista.xhtml?faces-redirect=true" />
+                    <p:menuitem value="Pallet's"                 url="../../../content/admin/report/CatalogoPallet.xhtml?faces-redirect=true" />
+                    <p:menuitem value="Usuarios"                 url="../../../content/admin/report/CatalogoUsuario.xhtml?faces-redirect=true" />
+                </p:submenu>
+                <p:submenu label="Catálogos" icon="ui-icon-extlink" style="width:170px;height:40px;">
+                    <p:submenu label="Activos">
+                        <p:menuitem value="Activo"    url="../../../content/admin/activo/ListaActivo.xhtml?faces-redirect=true" />
+                        <p:menuitem value="Perfil"    url="../../../content/admin/perfil/Listarperfil.xhtml?faces-redirect=true" />
+                        <p:menuitem value="Tipo productor"    url="../../../content/admin/tipop/ListaActivo.xhtml?faces-redirect=true" />
+                    </p:submenu>
+                    <p:submenu label="Pallet">
+                        <p:menuitem value="Marca"        url="../../../content/admin/marca/Listarmarca.xhtml?faces-redirect=true" />
+                        <p:menuitem value="Leer"        url="../../../content/admin/leer/lectora.html?faces-redirect=true" />
+                        <p:menuitem value="Calibre"      url="../../../content/admin/calibre/Listarcalibre.xhtml?faces-redirect=true" />
+                        <p:menuitem value="Tarima"       url="../../../content/admin/tarima/ListarTarima.xhtml?faces-redirect=true" />
+                        <p:menuitem value="Calidad"      url="../../../content/admin/calidad/Listarcalidad.xhtml?faces-redirect=true" />
+                        <p:menuitem value="CDI"          url="../../../content/admin/CDI/Listarmarca.xhtml?faces-redirect=true" />
+                        <p:menuitem value="Tamaño Limón" url="../../../content/admin/tlimon/ListarTarima.xhtml?faces-redirect=true" />
+                        <p:menuitem value="Tamaño Rejas" url="../../../content/admin/rejas/ListarTarima.xhtml?faces-redirect=true" />
+                    </p:submenu>
+                    <p:submenu label="Corridas">
+                        <p:menuitem value="Insumos"           url="../../../content/admin/catinsumos/Listar.xhtml?faces-redirect=true" />
+                        <p:menuitem value="Tipo de  Pagos"    url="../../../content/admin/tipopago/Listar.xhtml?faces-redirect=true" />
+                    </p:submenu>
+                </p:submenu>
+                <p:menuitem value="Salir" action="#{sessionMB.salir()}" icon="pi pi-times" />
+            </p:slideMenu>
+        </h:form>
+    </ui:define>
+</ui:composition>

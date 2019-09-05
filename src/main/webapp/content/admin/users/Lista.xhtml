@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/WEB-INF/templates/LoggedTemplate.xhtml">
+    <ui:define name="contentPart">
+        <h:form id="activosForm">
+              <h:outputText
+                  value="Administracion -> Usuarios"
+                style="font-weight: bold"/>
+            <p:growl id="growl" showDetail="true" sticky="true"></p:growl>
+            <p:dataTable
+                id="listado"
+                value="#{userMB.todos}"
+                var="registros"
+                paginator="true"
+                rows="10"
+                style="font-size: small"
+                emptyMessage="No se encontraron Activos"
+                paginatorPosition="bottom">
+                <f:facet name="header">
+                    Activos
+                    <p:commandButton
+                        id="btnAddEmp"
+                        styleClass="botonpequeno"
+                        update ="listado"
+                        value="Nuevo"
+                        title="Nuevo Registro"
+                        icon="ui-icon-circle-plus"
+                        style="display:inline; float:right; font-size:100%; "
+                        onclick="PF('AnexarActivo').show();" />
+                </f:facet>
+                <p:column
+                    sortBy="#{registros.id}"
+                    filterMatchMode="contains"
+                    width="10%"
+                    style="font-size: small"
+                    filterBy="#{registros.id}">
+                    <f:facet name="header">ID</f:facet>
+                    <h:outputText value="#{registros.id}"/>
+                </p:column>
+                <p:column
+                    sortBy="#{registros.nombre}"
+                    filterMatchMode="contains"
+                    width="25%"
+                    style="font-size: small"
+                    filterBy="#{registros.nombre}">
+                    <f:facet name="header">NOMBRE</f:facet>
+                    <h:outputText value="#{registros.nombre}"/>
+                </p:column>
+                <p:column
+                    sortBy="#{registros.login}"
+                    filterMatchMode="contains"
+                    width="25%"
+                    style="font-size: small"
+                    filterBy="#{registros.login}">
+                    <f:facet name="header">LOGIN</f:facet>
+                    <h:outputText value="#{registros.login}"/>
+                </p:column>
+                <p:column
+                    sortBy="#{registros.paterno}"
+                    filterMatchMode="contains"
+                    width="25%"
+                    style="font-size: small"
+                    filterBy="#{registros.paterno}">
+                    <f:facet name="header">PATERNO</f:facet>
+                    <h:outputText value="#{registros.paterno}"/>
+                </p:column>
+                <p:column
+                    sortBy="#{registros.materno}"
+                    filterMatchMode="contains"
+                    width="25%"
+                    style="font-size: small"
+                    filterBy="#{registros.materno}">
+                    <f:facet name="header">MATERNO</f:facet>
+                    <h:outputText value="#{registros.materno}"/>
+                </p:column>
+
+                <p:column
+                    sortBy="#{registros.perfilstr}"
+                    filterMatchMode="contains"
+                    width="25%"
+                    style="font-size: small"
+                    filterBy="#{registros.perfil}">
+                    <f:facet name="header">PERFIL</f:facet>
+                    <h:outputText value="#{registros.perfil}"/>
+                </p:column>
+                <p:column
+                    sortBy="#{registros.activostr}"
+                    filterMatchMode="contains"
+                    width="25%"
+                    style="font-size: small"
+                    filterBy="#{registros.activostr}">
+                    <f:facet name="header">ESTATUS</f:facet>
+                    <h:outputText value="#{registros.activostr}"/>
+                </p:column>
+                <p:column
+                    width="18%"
+                    headerText="Acciones">
+                    <p:commandButton value="Borrar" actionListener="#{userMB.borrarUsuario(registros,registros.id)}"
+                         update=":activosForm:listado @form"
+                        icon="ui-icon-scissors"
+                        style="display:inline;float:left;width: 100px;"
+                        immediate="true">
+                        <p:confirm header="Confirmación" message="Esta de acuerdo en borrar este registro?" icon="ui-icon-alert" />
+                    </p:commandButton>
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                        <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"   update=":activosForm:listado @form" />
+                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                    </p:confirmDialog>
+                 </p:column>
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+    <ui:define name="outLayoutPart" >
+        <ui:include src="Editar.xhtml" />
+        <ui:include src="Anexar.xhtml" />
+    </ui:define>
+</ui:composition>

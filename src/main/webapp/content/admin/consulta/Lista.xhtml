@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/WEB-INF/templates/LoggedTemplate.xhtml">
+    <ui:define name="contentPart">
+        		<h:form id="form">
+	        <p:panelGrid columns="2" styleClass="ui-fluid center ui-noborder" style="width:650px;">
+				<p:panelGrid columns="1" styleClass="ui-fluid center ui-noborder" style="width:151;">
+					<p:graphicImage name="resources/images/light-blue.png"
+							styleClass="content" width="150px" height="700px" />
+					</p:panelGrid>
+				<p:panelGrid columns="1" styleClass="ui-fluid center ui-border" style="width:650;border:1;">
+				    <p:carousel value="#{carouselView.cars}" headerText="Responsive" var="car" itemStyle="text-align:center" responsive="true" style="width:850px" >
+				        <p:panelGrid columns="2" style="width:300px;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
+				            <f:facet name="header">
+				                <p:graphicImage name="resources/images/#{car.brand}.gif"  width="60px" height="60px" /> 
+				            </f:facet>				 
+				            <h:outputText value="Id:" />
+				            <h:outputText value="#{car.id}" />
+				 
+				            <h:outputText value="Year" />
+				            <h:outputText value="#{car.year}" />
+				 
+				            <h:outputText value="Color:" />
+				            <h:outputText value="#{car.color}" style="color:#{car.color}"/>
+				 
+				            <h:outputText value="Price" />
+				            <h:outputText value="$#{car.price}" />
+				        </p:panelGrid>
+				 
+				        <f:facet name="footer">
+				                In total there are #{carouselView.cars.size()} cars.
+				        </f:facet>
+				    </p:carousel>
+					<p:spacer></p:spacer>
+					<p:carousel value="#{carouselView.cars}" headerText="Custom" var="car" itemStyle="height:200px;text-align:center" numVisible="1" easing="easeOutBounce" style="width:850px" circular="true">
+				        <h:panelGrid columns="2" style="width:400px" columnClasses="label,value">
+				            <f:facet name="header">
+				                <p:graphicImage name="resources/images/#{car.brand}.gif"  width="60px" height="60px"/> 
+				            </f:facet>
+				 
+				            <h:outputText value="Id:" />
+				            <h:outputText value="#{car.id}" />
+				 
+				            <h:outputText value="Year" />
+				            <h:outputText value="#{car.year}" />
+				 
+				            <h:outputText value="Color:" />
+				            <h:outputText value="#{car.color}" style="color:#{car.color}"/>
+				 
+				            <h:outputText value="Price" />
+				            <h:outputText value="$#{car.price}" />
+				 
+				            <f:facet name="footer">
+				                <p:commandButton update=":form:carDetail" oncomplete="PF('carDialog').show()" icon="pi pi-search">
+				                    <f:setPropertyActionListener value="#{car}" target="#{carouselView.selectedCar}" />
+				                </p:commandButton>
+				            </f:facet>
+				        </h:panelGrid>
+				    </p:carousel> 
+				    <p:spacer></p:spacer>
+				    <p:carousel numVisible="1" effect="easeInStrong" headerText="Tabs" style="margin-bottom:0;width:750px;">
+				        <p:tab title="Godfather Part I">
+				            <h:panelGrid columns="2" cellpadding="10">
+				                <p:graphicImage name="resources/images/godfather1.jpg"   width="120px" height="180px"/>
+				                <h:outputText
+				                    value="1.The story begins as Don Vito Corleone, the head of a New York Mafia family" />
+				            </h:panelGrid>
+				        </p:tab>
+				        <p:tab title="Godfather Part II">
+				            <h:panelGrid columns="2" cellpadding="10">
+				                <p:graphicImage name="resources/images/godfather2.jpg"  width="120px" height="180px"/>
+				                <h:outputText value="2.The story begins as Don Vito Corleone, the head of a New York Mafia family" />
+				            </h:panelGrid>
+				        </p:tab>
+				        <p:tab title="Godfather Part III">
+				            <h:panelGrid columns="2" cellpadding="10">
+				                <p:graphicImage name="resources/images/godfather3.jpg"   width="120px" height="180px"/>
+				                <h:outputText value="3.The story begins as Don Vito Corleone, the head of a New York Mafia family" />
+				            </h:panelGrid>
+				        </p:tab>
+				    </p:carousel>
+				 	<p:spacer></p:spacer>
+				    <p:dialog header="Car Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+				        <p:outputPanel id="carDetail" style="text-align:center;">
+				            <p:panelGrid  columns="2" rendered="#{not empty carouselView.selectedCar}" columnClasses="label,value">
+				                <f:facet name="header">
+				                    <p:graphicImage name="resources/images/#{carouselView.selectedCar.brand}-big.gif"   width="40px" height="40px"/> 
+				                </f:facet>
+				 
+				                <h:outputText value="Id:" />
+				                <h:outputText value="#{carouselView.selectedCar.id}" />
+				 
+				                <h:outputText value="Year" />
+				                <h:outputText value="#{carouselView.selectedCar.year}" />
+				 
+				                <h:outputText value="Color:" />
+				                <h:outputText value="#{carouselView.selectedCar.color}" style="color:#{carouselView.selectedCar.color}"/>
+				 
+				                <h:outputText value="Price" />
+				                <h:outputText value="$#{carouselView.selectedCar.price}" />
+				            </p:panelGrid>
+				        </p:outputPanel>
+				    </p:dialog>
+				</p:panelGrid>
+			</p:panelGrid>
+		</h:form>
+    </ui:define> 
+</ui:composition>

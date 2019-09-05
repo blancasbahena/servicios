@@ -1,0 +1,436 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12/10/2016, 06:35:29 PM
+    Author     : VictorSantana
+*/
+
+.botonpequeno {
+
+}
+.myLayoutStyleClass .ui-layout-unit-content{
+    background: #E4AE30;
+    border-style: none ;
+ }
+.tablePlazas td:nth-child(1) {
+    width: 30px;
+}
+.centered  {
+
+    text-align: left;
+    background-color: #FAFAF4;
+    font-size: small;
+    border-color: #4EA30D;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.fuenteMenuEmpleado {
+    font-size: 14px;
+}
+
+.centered2  {
+
+    text-align: left;
+    font-size: small;
+    background-color: #FAFAF4 ;
+    border-color: #4EA30D;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.centered3  {
+
+    text-align: left;
+    font-size: small;
+    background-color: #FAFAF4 ;
+    border-color: #4EA30D;
+    border-style: solid;
+    border-width: 2px;
+    width: 50%;
+}
+
+.centered4  {
+
+    text-align: left;
+    font-size: small;
+    background-color: #FAFAF4 ;
+    border-color: #4EA30D;
+    border-style: solid;
+    border-width: 2px;
+    width: 50%;
+
+}
+
+.centered5  {
+
+    text-align: left;
+    background-color: #FAFAF4;
+    font-size: small;
+
+}
+
+.centered6  {
+
+    text-align: left;
+    background-color: #FAFAF4;
+    font-size: small;
+
+
+}
+
+.centered7  {
+
+    text-align: left;
+    background-color: #FAFAF4;
+    font-size: small;
+    width: 50%;
+
+}
+
+.centered8  {
+
+    text-align: left;
+    background-color: #FAFAF4;
+    font-size: small;
+    width: 50%;
+    padding-left: 230px;
+}
+
+.centered9  {
+
+    text-align: left;
+    background-color: #FAFAF4;
+    font-size: small;
+    max-width: 65% !important;
+
+}
+.centered10  {
+
+    text-align: left;
+    font-size: small;
+    background-color: #FAFAF4;
+    width: 35%;
+
+}
+
+.centered11  {
+
+    text-align: left;
+    background-color: #FAFAF4;
+    font-size: small;
+    width: 140px;
+
+}
+
+.centered12  {
+
+    text-align: left;
+    font-size: small;
+    background-color: #FAFAF4;
+    width: 141px!important;
+
+}
+
+.centered13  {
+
+    text-align: left;
+    background-color: #FAFAF4;
+    font-size: small;
+    width: 16.5%;
+
+}
+
+.centered14  {
+
+    text-align: left;
+    background-color: #FAFAF4;
+    font-size: small;
+    width: 16.5%;
+
+}
+
+
+.calendario  {
+
+
+    width: 220px;
+
+}
+
+.left {
+    float: left;
+    font-weight: 600;
+    font-size: 70%;
+}
+
+.derechaArriba  {
+    margin-top:0px;
+    text-align: right;
+    float : right;
+    font-size: 65%;
+}
+
+.activeGreen{
+    background-color:#4169E1;
+    background:#4169E1;
+    border-left:1px;
+    border-bottom:1px;
+    height:22px;
+    width:22px;
+    -webkit-border-top-left-radius:11px;
+    border-top-left-radius:151x;
+
+    -webkit-border-bottom-left-radius:11px;
+    border-bottom-left-radius:11px;
+
+    -webkit-border-top-right-radius:11px;
+    border-top-right-radius:11x;
+
+    -webkit-border-bottom-right-radius:11px;
+    border-bottom-right-radius:11px;
+
+
+    margin-left:15px;
+}
+
+.activeYellow{
+
+    background-color:#ffff80;
+    background:#ffff80;
+    border-left:1px;
+    border-bottom:1px;
+    -webkit-border-top-left-radius:15px;
+    border-top-left-radius:15px;
+
+    -webkit-border-bottom-left-radius:15px;
+    border-bottom-left-radius:15px;
+
+    -webkit-border-top-right-radius:15px;
+    border-top-right-radius:15px;
+
+    -webkit-border-bottom-right-radius:15px;
+    border-bottom-right-radius:15px;
+    height:22px;
+    width:22px;
+
+    margin-left:22px;
+
+}
+
+.activeRed{
+    background-color:#804040;
+    background:#804040;
+    border-left:1px;
+    border-bottom:1px;
+    -webkit-border-top-left-radius:15px;
+    border-top-left-radius:15px;
+    -webkit-border-bottom-left-radius:15px;
+    border-bottom-left-radius:15px;
+
+    -webkit-border-top-right-radius:15px;
+    border-top-right-radius:15px;
+
+    -webkit-border-bottom-right-radius:15px;
+    border-bottom-right-radius:15px;
+    height:22px;
+    width:22px;
+
+    margin-left:22px;
+}
+
+
+.inactiveGreen{
+    background-color:blue;
+    background:blue;
+    border:0px;
+    -webkit-border-top-left-radius:15px;
+    border-top-left-radius:15px;
+    -webkit-border-bottom-left-radius:15px;
+    border-bottom-left-radius:15px;
+
+    -webkit-border-top-right-radius:15px;
+    border-top-right-radius:15px;
+
+    -webkit-border-bottom-right-radius:15px;
+    border-bottom-right-radius:15px;
+    height:25px;
+    width:25px;
+
+    margin-left:22px;
+}
+
+.inactiveYellow{
+    background-color:yellow;
+    background:yellow;
+    border:0px;
+    -webkit-border-top-left-radius:15px;
+    border-top-left-radius:15px;
+    -webkit-border-bottom-left-radius:15px;
+    border-bottom-left-radius:15px;
+
+    -webkit-border-top-right-radius:15px;
+    border-top-right-radius:15px;
+
+    -webkit-border-bottom-right-radius:15px;
+    border-bottom-right-radius:15px;
+    height:25px;
+    width:25px;
+
+    margin-left:22px;
+}
+
+.inactiveRed{
+    background-color:red;
+    background:red;
+    border:0px;
+    -webkit-border-top-left-radius:15px;
+    -webkit-border-top-left-radius:15px;
+    -webkit-border-bottom-left-radius:15px;
+    border-bottom-left-radius:15px;
+
+    -webkit-border-top-right-radius:15px;
+    border-top-right-radius:15px;
+
+    -webkit-border-bottom-right-radius:15px;
+    border-bottom-right-radius:15px;
+    height:25px;
+    width:25px;
+
+    margin-left:22px;
+}
+
+.panelNoBorder, .panelNoBorder tr, .panelNoBorder td{
+    border: hidden;
+    border-color: white;
+}
+
+span.cien-porciento input{
+    width: 100%;
+}
+
+.calendar input{
+    width: 200px;
+}
+.calendar button{
+    width: 30px;
+}
+
+.reportesNomina{
+    margin-top: 15px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    max-height: 100px;
+    font-size: small;
+    display: inline;
+    
+}
+
+.reportesNomina th{
+    min-width: 300px;
+    background: #4EA30D;
+    height: 25px;
+    font-size: 12px;
+    text-align: left;
+    color: #ffffff;
+}
+.reportesNomina td{
+    background: #FAFAF4;
+}
+.reportesNomina td a{ 
+    text-decoration:none; 
+}
+
+
+.reportesNomina1{
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+    max-height: 100px;
+    font-size: small;
+    display: inline;
+    
+}
+
+.netoEt{
+    background: none;
+    border: none;
+    font-weight: bold;
+    text-align: right;
+}
+
+
+
+.reportesNomina1 th{
+    min-width: 250px;
+    background: #4EA30D;
+    height: 25px;
+    font-size: 12px;
+    text-align: left;
+    color: #ffffff;
+}
+.reportesNomina1 td{
+    background: #FAFAF4;
+}
+.reportesNomina1 td a{ 
+    text-decoration:none; 
+}
+
+
+
+
+
+
+.subirArchivoCFDI{
+    
+}
+
+.subirArchivoCFDI .ui-fileupload {
+    margin: 0px 0px 0px 0px !important;
+    padding: 0px 0px 0px 0px !important;
+    width: 350px;
+    height: 30px;
+    display: inline-block;
+}
+
+.subirArchivoCFDI .ui-fileupload-buttonbar {
+    background: none !important;
+    padding: 0px 0px 0px 0px !important;
+    border: none;
+    font-size: x-small;
+    text-align: left;
+
+    
+}
+.subirArchivoCFDI .ui-fileupload-content {
+    padding: 0px 0px 0px 0px !important;
+    margin-top: -15%;
+    margin-left: 60%;
+    width: 100%;
+    height: inherit;
+    font-size: medium;
+    background: none !important;
+    border: none !important;
+    
+}
+
+.subirArchivoCFDI .ui-fileupload-files{
+    padding: 0px 0px 0px 0px !important;
+    margin-top: 15%;
+    margin-left: -60%;
+    background-color: #D5DEB3 !important;
+    border-color: #eed3d7 !important;
+    color: #008040;
+}
+.subirArchivoCFDI .ui-button{
+    width: 75%;
+    height: 20px;
+}
+
+.subirArchivoCFDI .ui-fileupload-content .ui-messages-error-detail{
+    display: none;
+}

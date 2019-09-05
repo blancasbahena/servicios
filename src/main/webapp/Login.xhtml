@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/AnonymousTemplateEX.xhtml">
+    <ui:define name="pageName">Inicio al sistema</ui:define>
+    <ui:define name="contentPart">
+        <h:form id="loginForm" prependId="false"> 
+            <p:growl id="growl" showDetail="true" sticky="true"></p:growl>
+            <div align="center">
+                <p:panelGrid columns="1" style="position:absolute; top:100px; left:400px;">
+                    <p:inputText value="#{login.usuariom}" placeholder="Usuario" />
+                    <p:password value="#{login.password}" placeholder="Password" />
+                    <f:facet name="footer">
+                        <p:commandButton value="Entrar"  action="#{login.LoginControl(login.usuariom,login.password)}" update="growl"/>
+                    </f:facet>  
+                </p:panelGrid>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

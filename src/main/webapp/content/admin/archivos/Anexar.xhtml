@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<script type="text/javascript">    
+    PrimeFaces.locales['de'] = {
+        closeText: 'Schließen',
+        prevText: 'Zurück',
+        nextText: 'Weiter',
+        monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+        monthNamesShort: ['Jan', 'Feb', 'März', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+        dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+        dayNamesShort: ['Son', 'Mon', 'Die', 'Mit', 'Don', 'Fre', 'Sam'],
+        dayNamesMin: ['S', 'M', 'D', 'M ', 'D', 'F ', 'S'],
+        weekHeader: 'Woche',
+        FirstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: '',
+        timeOnlyTitle: 'Nur Zeit',
+        timeText: 'Zeit',
+        hourText: 'Stunde',
+        minuteText: 'Minute',
+        secondText: 'Sekunde',
+        currentText: 'Aktuelles Datum',
+        ampm: false,
+        month: 'Monat',
+        week: 'Woche',
+        day: 'Tag',
+        allDayText: 'Ganzer Tag'
+    };
+</script>
+
+ <style type="text/css">
+    .value {
+        font-weight: bold;
+    }
+</style>
+    <body>
+        <ui:component>
+            <p:dialog
+                id="AnexarU"
+                header="Anexar Registro"
+                widgetVar="AnexarActivo"
+                modal="true"
+                resizable="false"
+                closable="true"
+                width="800" >
+                <h:panelGroup id="detalleAnexar">
+                    <br/><br/>
+                    <h:form id="anexar">
+                        <h:panelGrid columns="2" >
+                            
+                            <p:column>
+                                <h:outputLabel for="fi" value="Fecha Pago :" style="font-weight: bold"/>
+                            </p:column>
+                            <p:column>
+                                <p:calendar id="fi" value="#{fileMB.fechaPago}"  mask="true"  pattern="yyyy-MM-dd" showOn="button" required="true" requiredMessage="El campo fecha pago es requerido"/>
+                            </p:column>
+                            
+                            <p:column>
+                                <h:outputLabel for="ffec" value="Fecha Operación :" style="font-weight: bold"/>
+                            </p:column>
+                            <p:column>
+                                <p:calendar id="ffec" value="#{fileMB.fechaOperacion}"  mask="true"  pattern="yyyy-MM-dd" showOn="button" required="true" requiredMessage="El campo fecha operación es requerido"/>
+                            </p:column>
+                            <p:column>
+                                <h:outputLabel for="ff" value="Ruta : " style="font-weight: bold"/>
+                            </p:column>
+                            <p:column>
+                                <p:inputText id="ff" value="/home/stp/app/cep/archivosCEP/"  readonly="true" style="width: 550px" required="true" requiredMessage="El campo ruta inicial es requerido"/>
+                            </p:column>
+                             
+                            <p:column>
+                                <p:commandButton 
+                                    value="Crear" 
+                                    style="font-size:  100%" 
+                                    icon="ui-icon-pencil"
+                                    update=":detalleEditar"
+                                    action="#{fileMB.AnexarArchivo(fileMB.fechaPago,fileMB.fechaOperacion,1,request.contextPath)}"
+                                    onclick="PF('AnexarActivo').hide();">
+                                </p:commandButton>
+                            </p:column>
+                            <p:column>
+                                <p:commandButton
+                                    value="Cancelar"
+                                    type="button"
+                                    icon="ui-icon-circle-close"
+                                    style="font-size:  100%"
+                                    onclick="PF('AnexarActivo').hide();">
+                                </p:commandButton>
+                            </p:column>
+                        </h:panelGrid>
+                    </h:form>
+                </h:panelGroup>
+            </p:dialog>
+        </ui:component>
+    </body>
+</html>

@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<script type="text/javascript">    
+    PrimeFaces.locales['de'] = {
+        closeText: 'Schließen',
+        prevText: 'Zurück',
+        nextText: 'Weiter',
+        monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+        monthNamesShort: ['Jan', 'Feb', 'März', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+        dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+        dayNamesShort: ['Son', 'Mon', 'Die', 'Mit', 'Don', 'Fre', 'Sam'],
+        dayNamesMin: ['S', 'M', 'D', 'M ', 'D', 'F ', 'S'],
+        weekHeader: 'Woche',
+        FirstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: '',
+        timeOnlyTitle: 'Nur Zeit',
+        timeText: 'Zeit',
+        hourText: 'Stunde',
+        minuteText: 'Minute',
+        secondText: 'Sekunde',
+        currentText: 'Aktuelles Datum',
+        ampm: false,
+        month: 'Monat',
+        week: 'Woche',
+        day: 'Tag',
+        allDayText: 'Ganzer Tag'
+    };
+</script>
+
+ <style type="text/css">
+    .value {
+        font-weight: bold;
+    }
+</style>
+    <body>
+        <ui:component>
+            <p:dialog
+                id="editUser"
+                header="Editar Activo"
+                widgetVar="EditarActivo"
+                modal="true"
+                resizable="false"
+                closable="true"
+                width="600" >
+                <h:panelGroup id="detalleEditar">
+                    <br/><br/>
+                    <h:form id="edit">
+                        <h:panelGrid columns="2" >
+                            <p:column>
+                                <p:inputText value="#{archivoMB.activoSeleccionado.id}" id="id" type="hidden" />
+                            </p:column>
+                            <p:column> 
+                            </p:column> 
+                            
+                            <p:column>
+                                <h:outputLabel for="id2" value="Id : " style="font-weight: bold"/>
+                            </p:column>
+                            <p:column>
+                                <p:inputText id="id2" value="#{archivoMB.activoSeleccionado.id}" readonly="true" style="width: 350px" required="true" requiredMessage="El campo cajas es requerido"/>
+                            </p:column> 
+                            
+                            <p:column>
+                                <h:outputLabel for="nombre" value="Nombre: " style="font-weight: bold"/>
+                            </p:column>
+                            <p:column>
+                                <p:inputText id="nombre" value="#{archivoMB.activoSeleccionado.nombre}" style="width: 350px" required="true" requiredMessage="El campo nombre es requerido"/>
+                             </p:column>
+                            
+                            <p:column>
+                                <h:outputLabel for="fecha" value="Fecha Carga: " style="font-weight: bold"/>
+                            </p:column>
+                            <p:column>
+                                <p:calendar id="fecha" value="#{archivoMB.activoSeleccionado.fechaCarga}" pattern="yyyy-MM-dd" mask="true" />
+                             </p:column>
+                            
+                            <p:column>
+                                <h:outputLabel for="Entregado" value="Entregado: " style="font-weight: bold"/>
+                            </p:column>
+                            <p:column>
+                                <h:panelGrid columns="1" style="margin-bottom:10px" cellpadding="5">
+                                    <p:selectBooleanCheckbox id ="Entregado" value="#{archivoMB.activoSeleccionado.entregado}"  />
+                                </h:panelGrid>
+                            </p:column>
+                            <p:column >
+                                <div style="text-align: center;">
+                                    <p:commandButton 
+                                        value="Modificar" 
+                                        style="font-size:  100%" 
+                                        icon="ui-icon-pencil"
+                                        action="#{archivoMB.seleccionEditar(archivoMB.activoSeleccionado.id,
+                                                                            archivoMB.activoSeleccionado.nombre,
+                                                                            archivoMB.activoSeleccionado.fechaCarga,
+                                                                            archivoMB.activoSeleccionado.entregado)}">
+                                    </p:commandButton>
+                                </div>
+                            </p:column>
+                            <p:column>
+                                <div style="text-align: center;">
+                                    <p:commandButton
+                                        value="Cerrar"
+                                        type="button"
+                                        icon="ui-icon-circle-close"
+                                        style="font-size:  100%" 
+                                        onclick="PF('EditarActivo').hide();">
+                                    </p:commandButton>
+                                </div>
+                            </p:column> 
+                        </h:panelGrid> 
+                    </h:form>
+                </h:panelGroup>
+            </p:dialog>
+        </ui:component>
+    </body>
+</html>

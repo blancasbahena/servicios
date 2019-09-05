@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <f:view contentType="text/html;charset=utf-8" encoding="UTF-8" >
+        <h:head >
+            <style type="text/css">
+            html {
+            overflow: hidden;
+            }
+            </style>
+            <title><ui:insert name="pageTitleText">STP - CEP - v1</ui:insert></title>
+            <h:outputScript library="javascript" name="sy.js" />
+            <h:outputScript library="javascript" name="validacionesInput.js" />
+            <ui:insert name="extraHeadInfo" >
+            <h:outputStylesheet library="css" name="rhNomina.css"/>                
+            </ui:insert>
+        </h:head>
+
+        <h:body onload="nobackbutton();" >
+            <!-- En producción, asegurarse que el growl está deshabilitado o no rendereado (ver profiles y application.properties) -->
+            <p:growl rendered="#{commonDataMB.renderGobalGrowl}" autoUpdate="true" />
+
+            <p:layout fullPage="true">
+                <p:layoutUnit position="north" size="70"   styleClass="myLayoutStyleClass">
+                    <ui:insert name="headerPart" >                        
+                        <ui:insert name="topbarPart">
+                            <p:panelGrid style="border-style: none">
+                                <p:row >
+                                    
+                                    <p:column  style="background-color: #E4AE30;border-style: none">
+                                        <h:outputText value="Servicios Blancas  &#38; Peña" />
+                                    </p:column>
+                                    <p:column   style="background-color: #E4AE30;border-style: none">
+                                        <h:outputText value="version 1.0" />
+                                    </p:column>
+                                    <p:column   style="background-color: #E4AE30;border-style: none">
+                                        <h:outputText value="Fecha: " />
+<script type="text/javascript">
+var d = new Date(); 
+var dia=new Array(7);
+dia[0]="Domingo";
+dia[1]="Lunes";
+dia[2]="Martes";
+dia[3]="Miercoles";
+dia[4]="Jueves";
+dia[5]="Viernes";
+dia[6]="Sabado";
+var mes=new Array(12);
+mes[0]="Enero";
+mes[1]="Febrero";
+mes[2]="Marzo";
+mes[3]="Abril";
+mes[4]="Mayo";
+mes[5]="Junio";
+mes[6]="Julio";
+mes[7]="Agossto";
+mes[8]="Septiembre";
+mes[9]="Octubre";
+mes[10]="Noviembre";
+mes[11]="Diciembre";
+document.write( dia[d.getDay()] +' '+d.getDate()+ 
+        ' de '+ mes[d.getMonth()]+
+        ' de '+d.getFullYear()+
+        ' >  '+d.getHours()+ 
+        ':'+d.getMinutes()+
+        '.'+d.getSeconds());
+</script>
+                                    </p:column> 
+                                </p:row>
+                            </p:panelGrid>
+
+                        </ui:insert>
+                    </ui:insert>
+                </p:layoutUnit>
+                <p:layoutUnit position="center"> 
+                    <ui:insert name="contentPart"> 
+                        Ok
+                    </ui:insert>
+                </p:layoutUnit>
+                <p:layoutUnit position="south" size="35" >
+                    <ui:insert name="footerPArt">
+                        <div style="text-align: center; font-size: 8pt">
+                            &reg; Sistemas Blancas &sim; Peña
+                        </div>
+                    </ui:insert>
+                </p:layoutUnit>
+            </p:layout>
+            <ui:include src="/WEB-INF/components/AjaxStatus.xhtml" />
+            <ui:insert name="outLayoutPart" >
+            </ui:insert>
+        </h:body>
+    </f:view>
+</html>

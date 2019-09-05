@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<style type="text/css">
+    .label {
+        width:20%;
+        padding:4px;
+    }
+ 
+    .value {
+        width:80%;
+        padding:4px;
+    }
+ 
+    .grid {
+        width:100%;
+    }
+ 
+    .error {
+        color: red;
+    }
+ 
+    .outputLabel {
+        font-weight: bold;
+    }
+ 
+    .grid {
+        width:33%;
+        padding:4px;
+    }
+</style>
+    <body>
+        <ui:component>
+            <p:dialog
+                id="AnexarU"
+                header="Anexar Registro"
+                widgetVar="AnexarActivo"
+                modal="true"
+                resizable="false"
+                closable="true"
+                width="550" >
+                <h:panelGroup id="detalleAnexar">
+                    <h:form id="anexar">
+                        <p:messages id="msgs" />
+                        <h:panelGrid columns="2" >
+                            
+                            <p:column>
+                                <h:outputLabel   value="Nombre: " style="font-weight: bold"/>
+                            </p:column>
+                            <p:column>
+                                <p:inputText   value="#{userMB.nombre}" style="width: 350px" required="true" requiredMessage="El campo nopmbre corta es requerido">
+                                    <f:validateLength minimum="2" />
+                                </p:inputText>
+                            </p:column>
+                            
+                            <p:column>
+                                <h:outputLabel value="Paterno :" style="font-weight: bold"/>
+                            </p:column>
+                            <p:column>
+                                <p:inputText value="#{userMB.paterno}" style="width: 350px"  required="true" requiredMessage="El campo paterno es requerido">
+                                    <f:validateLength minimum="2" />
+                                </p:inputText>
+                            </p:column>
+                            
+                            <p:column>
+                                <h:outputLabel value="Materno : " style="font-weight: bold"/>
+                            </p:column>
+                            <p:column>
+                                <p:inputText value="#{userMB.materno}" style="width: 350px" required="true" requiredMessage="El campo materno es requerido">
+                                    <f:validateLength minimum="2" />
+                                </p:inputText>
+                            </p:column>
+                             
+                           
+                            <p:column>
+                                <h:outputLabel   value="Login: " style="font-weight: bold"/>
+                            </p:column>
+                            <p:column>
+                                <p:inputText   value="#{userMB.login}" style="width: 350px" required="true" requiredMessage="El campo login corta es requerido">
+                                    <f:validateLength minimum="2" />
+                                </p:inputText>
+                            </p:column>
+                             
+                            <p:column>
+                                <h:outputLabel value="Password1 :" style="font-weight: bold"/>
+                            </p:column>
+                            <p:column>
+                                <p:password  value="#{userMB.password1}"    style="width: 350px" required="true"  requiredMessage="El campo password  es requerido"/>
+                            </p:column>
+                            
+                            
+                            <p:column>
+                                <h:outputLabel   value="Perfil: " style="font-weight: bold"/>
+                            </p:column>
+                            <p:column>
+                                <p:selectOneMenu id="per"  value="#{userMB.perfil}"  style="width: 350px" 
+                                    filter="true" filterMatchMode="startsWith" caseSensitive="true"
+                                    required="true" requiredMessage="El perfil es requerido">
+                                    <f:selectItems value="#{userMB.perfiles}"
+                                        var="registrop"
+                                        itemLabel="#{registrop.descripcion}"
+                                        itemValue="#{registrop.id}"/>
+                                </p:selectOneMenu> 
+                            </p:column>
+                             
+                            <p:column>
+                                <p:commandButton 
+                                    value="Crear " 
+                                    style="font-size:  100%" 
+                                    icon="ui-icon-pencil"
+                                    onclick="PF('AnexarActivo').hide();"
+                                    action="#{userMB.Anexar(
+                                              userMB.nombre,
+                                              userMB.paterno,
+                                              userMB.materno,
+                                              userMB.login,
+                                              userMB.password1,
+                                              userMB.password1,
+                                              userMB.perfil
+                                              )}"
+                                    process="@form"
+                                    update=":activosForm:listado @form" />
+                            </p:column>
+                            <p:column>
+                                <p:commandButton
+                                    value="Cerrar"
+                                    type="button"
+                                    icon="ui-icon-circle-close"
+                                    style="font-size:  100%"
+                                    onclick="PF('AnexarActivo').hide();">
+                                </p:commandButton>
+                            </p:column>
+                        </h:panelGrid>
+                    </h:form>
+                </h:panelGroup>
+            </p:dialog>
+        </ui:component>
+    </body>
+</html>
